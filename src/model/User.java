@@ -1,3 +1,5 @@
+package model;
+
 public class User {
     private int id;
     private String name, email, address, phoneNumber;
@@ -51,5 +53,12 @@ public class User {
         }else{
             this.phoneNumber = phoneNumber;
         }
+    }
+
+    // Estoy Sobreescribiendo un Método
+    @Override                           // Con la etiqueta "@Override" yo sé que este método no es del a clase model.User
+    public String toString() {
+        return "model.User: " + name + ", Email: " + email +
+                "\nAddress: " + address + ". Phone: "+ phoneNumber;
     }
 }

@@ -1,12 +1,13 @@
-import static ui.UIMenu.*;                                                 // Estoy importantando todos los metodos y atributos de la clase "ui" usando "static"
+import model.Doctor;
+import model.Patient;
+
 import java.util.Date;
 public class Main {
     public static void main(String[] args) {
 
-        // Manera corta de instanciar un objeto de la clase "Doctor"
+        // Manera corta de instanciar un objeto de la clase "model.Doctor"
         Doctor myDoctor = new Doctor("Jeremmy Jones", "Cardiologo");             // Al darle un parametro estoy escogiendo el otro "Método Constructor" que declare
         //myDoctor.name = "Fernando Orozco";
-
 
         // Voy a agregar una nueva cita usando "Clases Anidadas"
         myDoctor.addAvailableAppointme(new Date(), "4pm");
@@ -22,53 +23,48 @@ public class Main {
             System.out.println(availableAppointment.getDate() + " " +  availableAppointment.getTime());
         }
 
-        //myDoctor.showName();                                            // Estoy usando el metodo de la clase "Doctor" que esta en otro archivo (Modularizado)
-        System.out.println("");
+        //myDoctor.showName();                                            // Estoy usando el metodo de la clase "model.Doctor" que esta en otro archivo (Modularizado)
 
-        // Otra forma de Inicializar un objeto de la clase "Doctor"
+        // Otra forma de Inicializar un objeto de la clase "model.Doctor"
         Doctor anotherDoctor;
-        // anotherDoctor = new Doctor();                                   // Utilicé el "Método Constructor" que Java me declara por defecto
+        // anotherDoctor = new model.Doctor();                                   // Utilicé el "Método Constructor" que Java me declara por defecto
         //anotherDoctor.name = "Juanito Perez";
         //anotherDoctor.showName();
         //anotherDoctor.showId();
-        // System.out.println(Doctor.id);
+        // System.out.println(model.Doctor.id);
 
-        // Doctor myDoctorAlex = new Doctor();
+        // model.Doctor myDoctorAlex = new model.Doctor();
         //myDoctorAlex.name = "Alex Contreras";
         //myDoctorAlex.showName();
         //myDoctorAlex.showId();
-        // System.out.println(Doctor.id);                                  // Otra forma de imprimir la "variable de Clase"
+        // System.out.println(model.Doctor.id);                                  // Otra forma de imprimir la "variable de Clase"
 
-        //Doctor.id++;                                                    // Puedo alterar la "Varible de Clases" de manera independiente
+        //model.Doctor.id++;                                                    // Puedo alterar la "Varible de Clases" de manera independiente
 
-        //Doctor myDoctorLuis = new Doctor();
+        //model.Doctor myDoctorLuis = new model.Doctor();
         //myDoctorLuis.name = "Luis Gómez";
         //myDoctorLuis.showName();
-        //System.out.println(Doctor.id);
+        //System.out.println(model.Doctor.id);
 
-        // Intancio un objeto tipo Doctor a quien le doy 2 valores por defecto (nombre y especialidad)
-        Doctor doctorProfesional = new Doctor("Sofia Ramirez", "Cirugana");
+        // Intancio un objeto tipo model.Doctor a quien le doy 2 valores por defecto (nombre y especialidad)
+        Doctor doctorProfesional = new Doctor("Sofia Ramirez", "Sofia@gmail.com");
         //System.out.println(doctorProfesional.name);
         //ystem.out.println(doctorProfesional.speciality);
 
-        // Intancio un objeto tipo Patient a quien le asigno 2 valores al inicializarlo (nombre y correo)
+        // Intancio un objeto tipo model.Patient a quien le asigno 2 valores al inicializarlo (nombre y correo)
         Patient myPatient = new Patient("Renata Garcia", "RenataGar@gmail.com");
         Patient myPatient2 = new Patient("Anahí", "anahi@gmail.com");
 
 
 
-
-
-
-
-
+        // Cuando imprimo estos objetos estoy utilizando implícitamente el método "toString()" el cual ya modifiqué en sus respectivas clases
         System.out.println(myPatient);          // Ahora estos dos souts nos imprimiran sus direcciones de memoria correspondientes
         System.out.println(myPatient2);
         System.out.println(myPatient.getName());
         System.out.println(myPatient2.getName());
         myPatient2 = myPatient;     // Aqui le estoy asigno la direccion de memoria de mi objeto "myPatient" a myPatient 2 (Esto se comporta de manera distinta a cuando son datos primitivos)
 
-        // Ahora mis dos objetos tipo Patient estan apuntando a la misma dirección de memoria (a la de "myPatient")
+        // Ahora mis dos objetos tipo model.Patient estan apuntando a la misma dirección de memoria (a la de "myPatient")
         System.out.println(myPatient);
         System.out.println(myPatient2);
         System.out.println(myPatient.getName());
@@ -80,6 +76,7 @@ public class Main {
         System.out.println(myPatient2);
         System.out.println(myPatient.getName());
         System.out.println(myPatient2.getName());
+
 
         // Estoy usando mis medotos "Getters y Setters ya declarados"
         myPatient.setWeight(54.5);
@@ -93,7 +90,9 @@ public class Main {
 
         int i = 0;
         int b = 2;
-        b = i;          // Ahora "b" es igual a 0
+        b = i;                                  // Ahora "b" es igual a 0
+
+
         // Ya no puedo modificar estos atributos ya que se encuentran protegidas al usar "Encapsulamiento y private"
         // System.out.println(myPatient.name);
         // System.out.println(myPatient.email);
@@ -106,14 +105,8 @@ public class Main {
 
 
 
-
-
-
         //ui.UIMenu.showMenu();                                              // Estoy llamando al "Método de Clase" que contiene instrucciones para realizar un menu general y otro menu de pacientes
         //showMenu();
 
-
-
     }
-
 }

@@ -1,9 +1,11 @@
+package model;
+
 public class Patient extends User{
     private String  birthday, blood; // Les puse "private" para que estas variables no puedan ser editadas o cambiadas desde afuera de esta Clase
     private double weight, height;                  // Les puse "private" para que estas variables no puedan ser editadas o cambiadas desde afuera de esta Clase
 
-    Patient(String name, String correo){
-        super(name, correo);            // "super" representa al objeto padre "User" y será creada cuando cree una clase Padre
+    public Patient(String name, String correo){
+        super(name, correo);            // "super" representa al objeto padre "model.User" y será creada cuando cree una clase Padre
         //this.name = name;
         //this.email = correo;
         //this.weight = 54.4;
@@ -28,6 +30,15 @@ public class Patient extends User{
 
     public void setHeight(double height) {
         this.height = height;
+    }
+
+    // Sobre escribo para agregar comportamientos extras para que me retorne información extra
+    /*Al imprimir cualquier objeto en la consola con System.out.println(object), en realidad, estamos ejecutando el método .toString() de dicho objeto,
+    por lo que si sobreescribimos este método en nuestras clases, el resultado en la consola también cambiará automáticamente.
+     */
+    @Override
+    public String toString() {
+        return super.toString() + "\nAge: " + birthday + "\nWeight: " + weight + "\nHeight: " + height + "\nBlood: " + blood;
     }
 
     /*public String getPhoneNumber() {
