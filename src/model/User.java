@@ -48,6 +48,7 @@ public abstract class User {                    // Vamos a utilizar una "Clase A
     }
 
     public void setPhoneNumber(String phoneNumber) {
+        //  Dentro de los métodos "Setters" puedo aplicar estructuras condicionales (if) para permitir un cambio de datos y su comportamiento
         if(phoneNumber.length() != 8){
             System.out.println("El número telefónico debe de ser de 8 dígitos");
         }else{
