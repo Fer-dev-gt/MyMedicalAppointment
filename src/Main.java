@@ -1,5 +1,4 @@
-import model.Doctor;
-import model.Patient;
+import model.*;
 
 import java.util.Date;
 public class Main {
@@ -13,6 +12,37 @@ public class Main {
         myDoctor.addAvailableAppointme(new Date(), "4pm");
         myDoctor.addAvailableAppointme(new Date(),"10am");
         myDoctor.addAvailableAppointme(new Date(), "1pm");
+
+        // Voy a instanciar un objeto de la clase hija "Doctor" usando la "Clase Abstracta" "User" (No puedo instanciar directamente "User" ya que es una clase Abstracta)
+        User userDoctor = new Doctor("Anahi", "ana@ana.com");
+        userDoctor.showDataUser();    // Ahora muestro el "Método Abstracto" que redefiní en la clase Doctor
+
+        // Ahora haré lo mismo pero con un "Patient"
+        User userPatient = new Patient("Javier", "Javier@Enfermo.com");
+        userPatient.showDataUser();
+
+        // Ejemplo de como instanciar una "Clase Abstracta" usando una "Clase Anónima"
+        User userOne = new User("UsuarioEspecial", "Usuario@especial.com") {
+            @Override               // Ahora puedo darle el comportamiento que yo quiera y que solo será vigente para este lapso de tiempo preciso
+            public void showDataUser() {
+                System.out.println("Doctor\n");
+                System.out.println("Hospital: Cruz Verde");
+                System.out.println("Departamento: Geriatría");
+            }
+        };
+        userOne.showDataUser();
+
+        // Ahora haremos algo parecido pero utilizando una "Interfaz"
+        ISchedulable iSchedulable = new ISchedulable() {
+            @Override
+            public void schedule(Date date, String time) {
+
+            }
+        };
+
+        //ISchedulable iSchedulable1 = new AppointmentDoctor();
+        //iSchedulable1.schedule();
+
 
         // Ahora voy a imprimir mis citas
         System.out.println("Va a imprimar las referencias/ubicaciones de mis objetos");
@@ -32,6 +62,8 @@ public class Main {
         //anotherDoctor.showName();
         //anotherDoctor.showId();
         // System.out.println(model.Doctor.id);
+
+        //  User user = new User();             // Al ser una Clase Abstracta ya no podre instanciara mas objetos de tipo User
 
         // model.Doctor myDoctorAlex = new model.Doctor();
         //myDoctorAlex.name = "Alex Contreras";

@@ -50,6 +50,13 @@ public class Doctor extends User{
         return super.toString() + "\nSpeciality: " + speciality + "\nAvailable: " + availableAppointments.toString();
     }
 
+    // Estoy implementando el "Método Abstracto" de la Clase padre "User"
+    @Override
+    public void showDataUser() {
+        System.out.println("Hospital: Cruz Roja");
+        System.out.println("Departamento: Cardiología");
+    }
+
     // Creo método de la clase model.Doctor para poder agregar citas
     public void addAvailableAppointme(Date date, String time){
         availableAppointments.add(new AvailableAppointment(date, time));        // Cada vez que añada una nueva cita estaré creando un nuevo objeto y lo estaré agregando a mi "ArrayList" ("Coleccion de Objetos")

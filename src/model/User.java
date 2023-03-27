@@ -1,6 +1,6 @@
 package model;
 
-public class User {
+public abstract class User {                    // Vamos a utilizar una "Clase Abstracta"
     private int id;
     private String name, email, address, phoneNumber;
 
@@ -61,4 +61,7 @@ public class User {
         return "model.User: " + name + ", Email: " + email +
                 "\nAddress: " + address + ". Phone: "+ phoneNumber;
     }
+
+    // Voy a crear un "Método Abstracto" que se refleje a las clases hijas
+    public abstract void showDataUser(); // Al ser un "Método Abstracto" no es necesario definir su comportamiento usando llaves (Lo definiremos en las otras Clases)
 }
