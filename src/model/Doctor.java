@@ -6,15 +6,12 @@ import java.util.ArrayList;
 import java.util.Date;
 public class Doctor extends User{
     private String speciality;   // Estas variables globales estarán relacionadas cuando "Instanciamos un objeto" usando "this" en un constructor
-
+    private ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();                  // Instanciamos un nuevo ArrayList
     public Doctor(String name, String correo){ // También podemos crear otro "Método Constructor" que reciba ciertos Parámetros (Sobrecarga de Constructores)
         super(name, correo);
-        System.out.println("El nombre del doctor es: " + name);
-        this.speciality = speciality;
     }
 
     // Colección de objetos tipo AvailableAppointment ("ArrayList")
-    ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();                  // Instanciamos un nuevo ArrayList
     public void addAvailableAppointment(String date, String time){              // Creo método de la clase model.Doctor para poder agregar citas
         availableAppointments.add(new AvailableAppointment(date, time));        // Cada vez que añada una nueva cita estaré creando un nuevo objeto y lo estaré agregando a mi "ArrayList" ("Coleccion de Objetos")
         // Si instanció por "fuera" puedo usar la sintaxis: model.Doctor.AvailableAppointment(date, time)
@@ -71,11 +68,11 @@ public class Doctor extends User{
         public void setId(int id) {
             this.id = id;
         }
-        public Date getDate() {
+        public Date getDate(String DATE) {
             return date;
         }
         // Voy a crear un método "get" para que devuelva la fecha de tipo Date a tipo String (Este recibe un parámetro)
-        public String getDate(String DATE){
+        public String getDate(){
             return format.format(date);
         }
         public void setDate(Date date) {

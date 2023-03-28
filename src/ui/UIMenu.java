@@ -48,7 +48,7 @@ public class UIMenu {
         // Voy a hacer una simulación en donde ya tengo algunos doctores y pacientes registrados en unas listas "ArrayList"
         // Lista de Doctores y le agrego la instanciación de algunos objetos tipo Doctor
         ArrayList<Doctor> doctors = new ArrayList<>();
-        doctors.add(new Doctor("Alejandor Martínez", "alejandro@gmail.com"));
+        doctors.add(new Doctor("Alejandro Martínez", "alejandro@gmail.com"));
         doctors.add(new Doctor("Karen Sosa", "karen@gmail.com"));
         doctors.add(new Doctor("Rocío Gómez","rocio@gmail.com"));
 
@@ -72,7 +72,6 @@ public class UIMenu {
                         // Obtengo los datos del usuario logeado (Inicializarlo al pasarle los datos al instanciarlo)
                         doctorLogged = doctor;
                         UIDoctorMenu.showDoctorMenu();
-                        // showDoctorMenu()
                     }
                 }
             }
@@ -82,7 +81,7 @@ public class UIMenu {
                     if (patient.getEmail().equals(email)){
                         correctEmail = true;
                         patientLogged = patient;
-                        //showPatientMenu()
+                        UIPatientMenu.showPatientMenu();
                     }
                 }
             }

@@ -1,8 +1,15 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Patient extends User{
     private String  birthday, blood; // Les puse "private" para que estas variables no puedan ser editadas o cambiadas desde afuera de esta Clase
     private double weight, height;                  // Les puse "private" para que estas variables no puedan ser editadas o cambiadas desde afuera de esta Clase
+
+    // Voy a crear 2 lista donde queden guardadas las citas de nuestros pacientes
+    private ArrayList<AppointmentDoctor> appointmentDoctors = new ArrayList<>();
+    private ArrayList<AppointmentNurse> appointmentNurses = new ArrayList<>();
 
     public Patient(String name, String correo){
         super(name, correo);            // "super" representa al objeto padre "model.User" y será creada cuando cree una clase Padre
@@ -27,6 +34,40 @@ public class Patient extends User{
 
     public void setHeight(double height) {
         this.height = height;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getBlood() {
+        return blood;
+    }
+
+    public void setBlood(String blood) {
+        this.blood = blood;
+    }
+
+    public ArrayList<AppointmentDoctor> getAppointmentDoctors() {
+        return appointmentDoctors;
+    }
+
+    public void addAppointmentDoctors(Doctor doctor, Date date, String time) {
+        AppointmentDoctor appointmentDoctor = new AppointmentDoctor(this, doctor);
+        appointmentDoctor.schedule(date, time);
+        appointmentDoctors.add(appointmentDoctor);
+    }
+
+    public ArrayList<AppointmentNurse> getAppointmentNurses() {
+        return appointmentNurses;
+    }
+
+    public void setAppointmentNurses(ArrayList<AppointmentNurse> appointmentNurses) {
+        this.appointmentNurses = appointmentNurses;
     }
 
     // Sobre escribo para agregar comportamientos extras para que me retorne información extra

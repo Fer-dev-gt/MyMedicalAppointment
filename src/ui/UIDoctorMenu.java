@@ -69,7 +69,7 @@ public class UIDoctorMenu {
                 do {
                     System.out.println("Insert the time available for date: " + date + " [16:00]");
                     time = sc.nextLine();
-                    System.out.println("Your time is: " + time + "\n 1. Correct \n2. Change Time");
+                    System.out.println("Your time is: " + time + "\n1. Correct \n2. Change Time");
                     responseTime = Integer.valueOf(sc.nextLine());
                 }while (responseTime == 2);
                 // Acá agendamos una nueva cita
