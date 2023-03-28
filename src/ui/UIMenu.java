@@ -71,6 +71,7 @@ public class UIMenu {
                         correctEmail = true;
                         // Obtengo los datos del usuario logeado (Inicializarlo al pasarle los datos al instanciarlo)
                         doctorLogged = doctor;
+                        UIDoctorMenu.showDoctorMenu();
                         // showDoctorMenu()
                     }
                 }

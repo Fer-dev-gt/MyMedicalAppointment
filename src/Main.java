@@ -1,6 +1,9 @@
 import model.*;
 
 import java.util.Date;
+
+import static ui.UIMenu.showMenu;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -9,9 +12,9 @@ public class Main {
         //myDoctor.name = "Fernando Orozco";
 
         // Voy a agregar una nueva cita usando "Clases Anidadas"
-        myDoctor.addAvailableAppointme(new Date(), "4pm");
-        myDoctor.addAvailableAppointme(new Date(),"10am");
-        myDoctor.addAvailableAppointme(new Date(), "1pm");
+        //myDoctor.addAvailableAppointment(new Date(), "4pm");
+        //myDoctor.addAvailableAppointment(new Date(),"10am");
+        //myDoctor.addAvailableAppointment(new Date(), "1pm");
 
         // Voy a instanciar un objeto de la clase hija "Doctor" usando la "Clase Abstracta" "User" (No puedo instanciar directamente "User" ya que es una clase Abstracta)
         User userDoctor = new Doctor("Anahi", "ana@ana.com");
@@ -52,8 +55,6 @@ public class Main {
         for (Doctor.AvailableAppointment availableAppointment: myDoctor.getAvailableAppointments()) {
             System.out.println(availableAppointment.getDate() + " " +  availableAppointment.getTime());
         }
-
-        //myDoctor.showName();                                            // Estoy usando el metodo de la clase "model.Doctor" que esta en otro archivo (Modularizado)
 
         // Otra forma de Inicializar un objeto de la clase "model.Doctor"
         Doctor anotherDoctor;
@@ -105,7 +106,6 @@ public class Main {
         System.out.println(myPatient.getName());
         System.out.println(myPatient2.getName());
 
-
         // Estoy usando mis medotos "Getters y Setters ya declarados"
         myPatient.setWeight(54.5);
         System.out.println(myPatient.getWeight());
@@ -116,12 +116,7 @@ public class Main {
         myPatient.setPhoneNumber("12345678");
         System.out.println(myPatient.getPhoneNumber()); // Al no cumplir la condicion, el valor se queda como "null"
 
-        int i = 0;
-        int b = 2;
-        b = i;                                  // Ahora "b" es igual a 0
-
-        //ui.UIMenu.showMenu();                                              // Estoy llamando al "Método de Clase" que contiene instrucciones para realizar un menu general y otro menu de pacientes
-        //showMenu();
+        showMenu();
 
     }
 }
