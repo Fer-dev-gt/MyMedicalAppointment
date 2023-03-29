@@ -4,34 +4,30 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Patient extends User{
-    private String  birthday, blood; // Les puse "private" para que estas variables no puedan ser editadas o cambiadas desde afuera de esta Clase
-    private double weight, height;                  // Les puse "private" para que estas variables no puedan ser editadas o cambiadas desde afuera de esta Clase
+    private String  birthday;                                               // "private" se usa para que estas variables no puedan ser editadas o cambiadas desde afuera de esta Clase
+    private String  blood;
+    private double weight;
+    private double height;
 
     // Voy a crear 2 lista donde queden guardadas las citas de nuestros pacientes
     private ArrayList<AppointmentDoctor> appointmentDoctors = new ArrayList<>();
     private ArrayList<AppointmentNurse> appointmentNurses = new ArrayList<>();
 
     public Patient(String name, String correo){
-        super(name, correo);            // "super" representa al objeto padre "model.User" y será creada cuando cree una clase Padre
-        // System.out.println(weight + " Kg.");        // Este adorno que le puse al "weight (Kg.) no lo van a poder modificar desde afuera de esta clase"
+        super(name, correo);                                                // "super" representa al objeto padre "model.User" y será creada cuando cree una clase Padre
     }
 
-    // Declaracion de mis metodos "Setters y Getters" de mi clase Patients
-    // método setter, le daré valor de 54.5
-    public void setWeight(double weight){       // Se le pone "public" para que este metodo sea accesible desde cualquier clase
+    // Declaro "Setters y Getters" de mi clase Patients
+    public void setWeight(double weight){                                   // Se le pone "public" para que este método sea accesible desde cualquier clase
         this.weight = weight;
     }
-
-    // método getter   (Aqui puede establecer las reglas o el formato con el cual voy a devolver mis datos) estas reglas no tienen que establecerse fuera de esta clase
-    // regresara 54.5 Kg. y sera un dato String
-    public String getWeight(){
+    public String getWeight(){          // Método getter (Aquí puede establecer las reglas o el formato con el cual voy a devolver mis datos) estas reglas no tienen que establecerse fuera de esta clase y sera un dato String
         return this.weight + " Kg.";
     }
 
     public String getHeight() {
         return height + " Metros";
     }
-
     public void setHeight(double height) {
         this.height = height;
     }
@@ -39,7 +35,6 @@ public class Patient extends User{
     public String getBirthday() {
         return birthday;
     }
-
     public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
@@ -47,7 +42,6 @@ public class Patient extends User{
     public String getBlood() {
         return blood;
     }
-
     public void setBlood(String blood) {
         this.blood = blood;
     }
@@ -56,7 +50,7 @@ public class Patient extends User{
         return appointmentDoctors;
     }
 
-    public void addAppointmentDoctors(Doctor doctor, Date date, String time) {
+    public void addAppointmentDoctors(Doctor doctor, Date date, String time) {                              // Este era el método Setter, le cambié el nombre
         AppointmentDoctor appointmentDoctor = new AppointmentDoctor(this, doctor);
         appointmentDoctor.schedule(date, time);
         appointmentDoctors.add(appointmentDoctor);
@@ -65,18 +59,16 @@ public class Patient extends User{
     public ArrayList<AppointmentNurse> getAppointmentNurses() {
         return appointmentNurses;
     }
-
     public void setAppointmentNurses(ArrayList<AppointmentNurse> appointmentNurses) {
         this.appointmentNurses = appointmentNurses;
     }
 
-    // Sobre escribo para agregar comportamientos extras para que me retorne información extra
-    /*Al imprimir cualquier objeto en la consola con System.out.println(object), en realidad, estamos ejecutando el método .toString() de dicho objeto,
-    por lo que si sobreescribimos este método en nuestras clases, el resultado en la consola también cambiará automáticamente.
-     */
-    @Override
+
+    @Override                                                                                               // Sobreescribo para agregar comportamientos extras para que me retorne información extra
     public String toString() {
         return super.toString() + "\nAge: " + birthday + "\nWeight: " + weight + "\nHeight: " + height + "\nBlood: " + blood;
+        /*Al imprimir cualquier objeto en la consola con System.out.println(object), en realidad, estamos ejecutando el método ".toString()" de dicho objeto,
+        por lo que si sobreescribimos este método en nuestras clases, el resultado en la consola también cambiará automáticamente. */
     }
 
     @Override
@@ -85,5 +77,4 @@ public class Patient extends User{
         System.out.println("Historial completa desde nacimiento");
     }
 
-    // Al usar la combinacion "cmd + n" el IDE me dara sugerencias para declarar mis "Getters y Setters"
 }

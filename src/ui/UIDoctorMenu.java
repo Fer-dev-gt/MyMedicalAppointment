@@ -5,14 +5,14 @@ import java.util.Scanner;
 import model.Doctor;
 
 public class UIDoctorMenu {
-    // Lista de "Objetos Doctores"de doctores que tienen disponibles su agenda
-    public static ArrayList<Doctor> doctorsAvailableAppointments = new ArrayList<Doctor>();
-    public static void showDoctorMenu(){        // Método para mostrar menu de doctores
+
+    public static ArrayList<Doctor> doctorsAvailableAppointments = new ArrayList<Doctor>();                             // Lista de "Objetos Doctores"de doctores que tienen disponibles su agenda
+    public static void showDoctorMenu(){                                                                                // Método para mostrar menu de doctores
         int response = 0;
         do {
             System.out.println("\n\n");
             System.out.println("Doctor");
-            System.out.println("Welcome " + UIMenu.doctorLogged.getName()); // Llamó a una variable estática "doctorLogged" (variable de entorno)
+            System.out.println("Welcome " + UIMenu.doctorLogged.getName());                                             // Llamó a una variable estática "doctorLogged" (variable de entorno)
             System.out.println("1. Add Available Appointment");
             System.out.println("2. My Scheduled Appointments");
             System.out.println("0. Logout");
@@ -34,15 +34,14 @@ public class UIDoctorMenu {
     }
 
 
-    // Método para mostrar las citas disponibles
-    private static void showAvailableAppointmentsMenu(){
+    private static void showAvailableAppointmentsMenu(){                                                                // Método para mostrar las citas disponibles
         int response = 0;
         do {
             System.out.println();
             System.out.println("::Add Available Appointment");
             System.out.println(":: Select a Month");
-            // Utilizo un ciclo for para mostrar mi lista de variables finales que tienen los meses del año
-            for (int i = 0; i < 3; i++){
+
+            for (int i = 0; i < 3; i++){                                                                                // Utilizo un ciclo for para mostrar mi lista de variables finales que tienen los meses del año
                 int j = i + 1;
                 System.out.println(j + ". " + UIMenu.MONTHS[i]);
             }
@@ -51,8 +50,7 @@ public class UIDoctorMenu {
             Scanner sc = new Scanner(System.in);
             response = Integer.valueOf(sc.nextLine());
 
-            if (response > 0 && response < 4){
-                //1,2,3 mes seleccionados
+            if (response > 0 && response < 4){                                                                          //1,2,3 mes seleccionados, muestro solo los primeros 3 meses del año
                 int monthSelected = response;
                 System.out.println(monthSelected + ". " + UIMenu.MONTHS[monthSelected - 1]);
                 System.out.println("Insert the date available: [dd/mm/yyyy]");
@@ -72,8 +70,8 @@ public class UIDoctorMenu {
                     System.out.println("Your time is: " + time + "\n1. Correct \n2. Change Time");
                     responseTime = Integer.valueOf(sc.nextLine());
                 }while (responseTime == 2);
-                // Acá agendamos una nueva cita
-                UIMenu.doctorLogged.addAvailableAppointment(date, time);
+
+                UIMenu.doctorLogged.addAvailableAppointment(date, time);                                                // Acá agendamos una nueva cita
                 checkDoctorAvailableAppointments(UIMenu.doctorLogged);
 
             } else if (response == 0) {
@@ -84,10 +82,8 @@ public class UIDoctorMenu {
         }while (response != 0);
     }
 
-    // Método privado (solo lo uso en esta clase) para ver que Doctores están disponibles
-    private static void checkDoctorAvailableAppointments(Doctor doctor){
-        // Valido que el doctor tenga citas y si no existe previamente en el Arraylist que declare arriba
-        if (doctor.getAvailableAppointments().size() > 0 && !doctorsAvailableAppointments.contains(doctor)){
+    private static void checkDoctorAvailableAppointments(Doctor doctor){                                                // Método privado (solo lo uso en esta clase) para ver que Doctores están disponibles
+        if (doctor.getAvailableAppointments().size() > 0 && !doctorsAvailableAppointments.contains(doctor)){            // Válido que el doctor tenga citas y si no existe previamente en el Arraylist que declare arriba
             doctorsAvailableAppointments.add(doctor);
         }
     }

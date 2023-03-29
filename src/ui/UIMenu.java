@@ -10,8 +10,7 @@ public class UIMenu {
     public static Doctor doctorLogged;
     public static Patient patientLogged;
 
-    // Método base proporcionados externamente
-    public static void showMenu(){
+    public static void showMenu(){                                                                                      // Método base, muestra el menú inicial
         System.out.println("Welcome to My Appointments");
         System.out.println("Selecciona la opción deseada");
 
@@ -43,34 +42,30 @@ public class UIMenu {
         }while (response != 0);
     }
 
-    // Método para autenticar que tipo de usuario, ya que es una clase estática necesito que todos los métodos sean estáticos
-    public static void authUser(int userType){                  // El parámetro nos dice de que tipos será el usuario
-        // Voy a hacer una simulación en donde ya tengo algunos doctores y pacientes registrados en unas listas "ArrayList"
-        // Lista de Doctores y le agrego la instanciación de algunos objetos tipo Doctor
-        ArrayList<Doctor> doctors = new ArrayList<>();
-        doctors.add(new Doctor("Alejandro Martínez", "alejandro@gmail.com"));
+    //
+    public static void authUser(int userType){                                                   // Método para autenticar el tipo de usuario, ya que es una clase estática necesito que todos los métodos sean estáticos. El parámetro nos dice que tipo será el usuario
+
+        ArrayList<Doctor> doctors = new ArrayList<>();                                           // Lista de Doctores y le agrego la instanciación de algunos objetos tipo Doctor
+        doctors.add(new Doctor("Alejandro Martínez", "alejandro@gmail.com"));       // Voy a hacer una simulación en donde ya tengo algunos doctores y pacientes registrados en unas listas "ArrayList"
         doctors.add(new Doctor("Karen Sosa", "karen@gmail.com"));
         doctors.add(new Doctor("Rocío Gómez","rocio@gmail.com"));
 
-        // Lista de Patiens y le agrego la instanciacion de algunos objetos tipo Patient
-        ArrayList<Patient> patients = new ArrayList<>();
+        ArrayList<Patient> patients = new ArrayList<>();                                         // Lista de Patients y le agrego la instanciación de algunos objetos tipo Patient
         patients.add(new Patient("Anahí Salgado", "anahi@gmail.com"));
         patients.add(new Patient("Roberto Rodríguez", "roberto@gmail.com"));
         patients.add(new Patient("Carlos Sánchez", "carlos@gmail.com"));
 
-        // Verifico que el correo ingresado coincida con alguno de los correos ya registrados en mi lista
-        boolean correctEmail = false;
+        boolean correctEmail = false;                                                           // Verifico que el correo ingresado coincida con alguno de los correos ya registrados en mi lista
         do {
             System.out.println("Insert your email: [a@a.com]");
             Scanner sc = new Scanner(System.in);
             String email = sc.nextLine();
-            // Verifico que tipo de usuario es y recorro mis "ArrayList" para encontrar el correo ingresado
-            if (userType == 1){
-                for (Doctor doctor: doctors){               // Forma de recorrer una lista de Objetos
+
+            if (userType == 1){                                                                 // Verifico que tipo de usuario es y recorro mi "ArrayList" para encontrar el correo ingresado
+                for (Doctor doctor: doctors){                                                   // Forma de recorrer una lista de Objetos
                     if (doctor.getEmail().equals(email)){
                         correctEmail = true;
-                        // Obtengo los datos del usuario logeado (Inicializarlo al pasarle los datos al instanciarlo)
-                        doctorLogged = doctor;
+                        doctorLogged = doctor;                                                  // Obtengo los datos del usuario loggeado (Inicializarlo al pasarle los datos al instanciarlo)
                         UIDoctorMenu.showDoctorMenu();
                     }
                 }
@@ -80,7 +75,7 @@ public class UIMenu {
                 for (Patient patient: patients){
                     if (patient.getEmail().equals(email)){
                         correctEmail = true;
-                        patientLogged = patient;
+                        patientLogged = patient;                                                // Obtengo los datos del usuario loggeado (Inicializarlo al pasarle los datos al instanciarlo)
                         UIPatientMenu.showPatientMenu();
                     }
                 }
@@ -89,9 +84,7 @@ public class UIMenu {
     }
 
 
-
-    // Método base proporcionados externamente
-    static void showPatientMenu(){
+    static void showPatientMenu(){                                                              // Método que muestra el menú al paciente y los meses donde puede agendar una cita
         int response = 0;
         do {
             System.out.println("\n\n");

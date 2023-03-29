@@ -1,6 +1,6 @@
 package model;
 import java.util.Date;
-public class AppointmentNurse implements ISchedulable{             // Voy a implementar mi interface "ISchedulable"
+public class AppointmentNurse implements ISchedulable{                              // Voy a implementar mi interface "ISchedulable"
     private int id;
     private Nurse nurse;
     private Patient patient;
@@ -11,7 +11,6 @@ public class AppointmentNurse implements ISchedulable{             // Voy a impl
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -19,7 +18,6 @@ public class AppointmentNurse implements ISchedulable{             // Voy a impl
     public Nurse getNurse() {
         return nurse;
     }
-
     public void setNurse(Nurse nurse) {
         this.nurse = nurse;
     }
@@ -27,7 +25,6 @@ public class AppointmentNurse implements ISchedulable{             // Voy a impl
     public Patient getPatient() {
         return patient;
     }
-
     public void setPatient(Patient patient) {
         this.patient = patient;
     }
@@ -35,7 +32,6 @@ public class AppointmentNurse implements ISchedulable{             // Voy a impl
     public Date getDate() {
         return date;
     }
-
     public void setDate(Date date) {
         this.date = date;
     }
@@ -43,13 +39,11 @@ public class AppointmentNurse implements ISchedulable{             // Voy a impl
     public String getTime() {
         return time;
     }
-
     public void setTime(String time) {
         this.time = time;
     }
 
-    // Sobreescribi e implementé un método
-    @Override
+    @Override                                                                       // Sobreescribí e implementé un método
     public void schedule(Date date, String time) {
 
     }

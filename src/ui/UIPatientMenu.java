@@ -12,7 +12,7 @@ public class UIPatientMenu {
         do {
             System.out.println("\n\n");
             System.out.println("Patient");
-            System.out.println("Welcome: " + UIMenu.patientLogged.getName());
+            System.out.println("Welcome: " + UIMenu.patientLogged.getName());                                           // Llamó a una variable estática "patientLogged" (variable de entorno)
             System.out.println("1. Book an appointment");
             System.out.println("2. My Appointments");
             System.out.println("0. Logout");
@@ -31,7 +31,6 @@ public class UIPatientMenu {
                     UIMenu.showMenu();
                     break;
             }
-
         }while (response != 0);
     }
 
@@ -40,17 +39,14 @@ public class UIPatientMenu {
         do {
             System.out.println("::Book an appointment");
             System.out.println("::Select Date:");
-            // Voy a utilizar un "Collection/Map" que usa Clave-Valor (Colección de Objetos)
-            // Numeración de la lista de fechas, utilizo un Map adentro de un Map
-            // Indíce de la fecha seleccionada
-            Map<Integer, Map<Integer, Doctor>> doctors = new TreeMap<>();
+
+            Map<Integer, Map<Integer, Doctor>> doctors = new TreeMap<>();                                   // Voy a utilizar un "Collection/Map" que usa Clave-Valor (Colección de Objetos), Numeración de la lista de fechas, utilizo un Map adentro de un Map. Indíce de la fecha seleccionada
             int k = 0;
             for (int i = 0; i < UIDoctorMenu.doctorsAvailableAppointments.size(); i++) {
-                // Creo un ArrayList para capturar únicamente las citas
-                ArrayList<Doctor.AvailableAppointment> availableAppointments =
+                ArrayList<Doctor.AvailableAppointment> availableAppointments =                              // Creo un ArrayList para capturar únicamente las citas
                         UIDoctorMenu.doctorsAvailableAppointments.get(i).getAvailableAppointments();
 
-                Map<Integer, Doctor> doctorAppointments = new TreeMap<>();
+                Map<Integer, Doctor> doctorAppointments = new TreeMap<>();                                  // Creo otra Collection para los "doctorAppointments"
 
                 for (int j = 0; j < availableAppointments.size(); j++) {
                     k++;
@@ -59,6 +55,7 @@ public class UIPatientMenu {
                     doctors.put(Integer.valueOf(k), doctorAppointments);
                 }
             }
+
             Scanner sc = new Scanner(System.in);
             int responseDateSelected = Integer.valueOf(sc.nextLine());
             Map<Integer, Doctor> doctorAvailableSelected = doctors.get(responseDateSelected);
@@ -71,16 +68,13 @@ public class UIPatientMenu {
             }
 
             System.out.println(doctorSelected.getName() +
-                            ". Date: " +
-                            doctorSelected.getAvailableAppointments().get(indexDate).getDate() +
-                            ". Time: " +
-                            doctorSelected.getAvailableAppointments().get(indexDate).getTime());
+                            ". Date: " + doctorSelected.getAvailableAppointments().get(indexDate).getDate() +
+                            ". Time: " + doctorSelected.getAvailableAppointments().get(indexDate).getTime());
             System.out.println("Confrim your appointment \n1. Yes \n2. Change Data");
             response = Integer.valueOf(sc.nextLine());
 
             if (response == 1){
-                UIMenu.patientLogged.addAppointmentDoctors(
-                        doctorSelected,
+                UIMenu.patientLogged.addAppointmentDoctors(doctorSelected,
                         doctorSelected.getAvailableAppointments().get(indexDate).getDate(null),
                         doctorSelected.getAvailableAppointments().get(indexDate).getTime());
                 showPatientMenu();
@@ -102,7 +96,7 @@ public class UIPatientMenu {
                 System.out.println(j + ". " +
                         "Date: " + UIMenu.patientLogged.getAppointmentDoctors().get(i).getDate() +
                         " Time: " + UIMenu.patientLogged.getAppointmentDoctors().get(i).getDate() +
-                        "\nDoctor: " + UIMenu.patientLogged.getAppointmentDoctors().get(i).getDoctor()
+                        "\nDoctor: " + UIMenu.patientLogged.getAppointmentDoctors().get(i).getDoctor().getName()
                         );
             }
 
