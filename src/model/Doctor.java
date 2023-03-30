@@ -66,10 +66,10 @@ public class Doctor extends User{
             this.id = id;
         }
 
-        public Date getDate(String DATE) {
+        public Date getDate(String DATE) {                                                                              // Voy a crear un método "get" para que devuelva la fecha de tipo String a tipo Date (Este recibe un parámetro)
             return date;
         }
-        public String getDate(){                                                                // Voy a crear un método "get" para que devuelva la fecha de tipo Date a tipo String (Este recibe un parámetro)
+        public String getDate(){                                                                                        // Combierto el dato tipo Date a un String
             return format.format(date);
         }
         public void setDate(Date date) {

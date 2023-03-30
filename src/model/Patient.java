@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Patient extends User{
-    private String  birthday;                                               // "private" se usa para que estas variables no puedan ser editadas o cambiadas desde afuera de esta Clase
+    private String  birthday;                                                                                           // "private" se usan para que estas variables no puedan ser editadas o cambiadas desde afuera de esta Clase
     private String  blood;
     private double weight;
     private double height;
@@ -14,7 +14,7 @@ public class Patient extends User{
     private ArrayList<AppointmentNurse> appointmentNurses = new ArrayList<>();
 
     public Patient(String name, String correo){
-        super(name, correo);                                                // "super" representa al objeto padre "model.User" y será creada cuando cree una clase Padre
+        super(name, correo);                                                                                            // "super" representa al objeto padre "model.User" y será creada cuando cree una clase Padre
     }
 
     // Declaro "Setters y Getters" de mi clase Patients
@@ -51,9 +51,9 @@ public class Patient extends User{
     }
 
     public void addAppointmentDoctors(Doctor doctor, Date date, String time) {                              // Este era el método Setter, le cambié el nombre
-        AppointmentDoctor appointmentDoctor = new AppointmentDoctor(this, doctor);
-        appointmentDoctor.schedule(date, time);
-        appointmentDoctors.add(appointmentDoctor);
+        AppointmentDoctor appointmentDoctor = new AppointmentDoctor(this, doctor);                   // Instanciamos un nuevo objeto tipo AppointmentDoctor
+        appointmentDoctor.schedule(date, time);                                                             // Acá ejecuto el método de mi Interfase y le paso dos parámetros, un Date y un String
+        appointmentDoctors.add(appointmentDoctor);                                                          // Le pasamos el objeto que acabamos de construir
     }
 
     public ArrayList<AppointmentNurse> getAppointmentNurses() {

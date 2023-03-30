@@ -43,7 +43,7 @@ public class UIMenu {
     }
 
 
-    public static void authUser(int userType){                                                   // Método para autenticar el tipo de usuario, ya que es una clase estática necesito que todos los métodos sean estáticos. El parámetro viene del menú principal
+    private static void authUser(int userType){                                                  // Método para autenticar el tipo de usuario, ya que es una clase estática necesito que todos los métodos sean estáticos. El parámetro viene del menú principal
 
         ArrayList<Doctor> doctors = new ArrayList<>();                                           // Lista de Doctores, le agrego la instanciación de algunos objetos tipo Doctor
         doctors.add(new Doctor("Alejandro Martínez", "alejandro@gmail.com"));       // Voy a hacer una simulación en donde ya tengo algunos doctores y pacientes registrados en unas listas "ArrayList"
@@ -65,7 +65,7 @@ public class UIMenu {
                 for (Doctor doctor : doctors){                                                   // Forma de recorrer una lista de Objetos para encontrar el correo ingresado
                     if (doctor.getEmail().equals(email)){
                         correctEmail = true;
-                        doctorLogged = doctor;                                                   // Obtengo los datos del usuario loggeado "doctor" (Inicializarlo al pasarle los datos al instanciarlo) es variable de entorno
+                        doctorLogged = doctor;                                                   // Obtengo los datos del usuario loggeado "doctor" y asignarlo a mi variable de entorno "doctorLogged"
                         UIDoctorMenu.showDoctorMenu();                                           // Utilizo el método "showDoctorMenu()" que se encuentra en otra clase
                     }
                 }
@@ -75,7 +75,7 @@ public class UIMenu {
                 for (Patient patient : patients){                                               // Forma de recorrer una lista de Objetos para encontrar el correo ingresado
                     if (patient.getEmail().equals(email)){
                         correctEmail = true;
-                        patientLogged = patient;                                                // Obtengo los datos del usuario loggeado "patient" (Inicializarlo al pasarle los datos al instanciarlo) es variable de entorno
+                        patientLogged = patient;                                                // Obtengo los datos del usuario loggeado "patient" y asignarlo a mi variable de entorno "patientLogged"
                         UIPatientMenu.showPatientMenu();                                        // Utilizo el método "showPatientMenu()" que se encuentra en otra clase
                     }
                 }

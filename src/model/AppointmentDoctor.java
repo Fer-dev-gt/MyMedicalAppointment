@@ -3,17 +3,15 @@ import java.util.Date;
 
 public class AppointmentDoctor implements ISchedulable{
     private int id;
-    private Patient patient;                                        // Esta clase albergará referencias de las otras clases (Patient)
-    private Doctor doctor;                                          // Esta clase albergará referencias de las otras clases (Doctor)
     private Date date;
     private String time;
+    private Patient patient;                                                                                            // Esta clase albergará referencias de las otras clases (Patient)
+    private Doctor doctor;                                                                                              // Esta clase albergará referencias de las otras clases (Doctor)
 
-    // Constructores
-    public AppointmentDoctor(Patient patient, Doctor doctor) {
+    public AppointmentDoctor(Patient patient, Doctor doctor) {                                                          // Constructor que recibo como parámetros dos objeto, un tipo Doctor y un tipo Patient
         this.patient = patient;
         this.doctor = doctor;
     }
-
 
     // Getters y Setters
     public int getId() {
@@ -53,7 +51,7 @@ public class AppointmentDoctor implements ISchedulable{
 
 
     @Override
-    public void schedule(Date date, String time) {
+    public void schedule(Date date, String time) {                                                                      // Defino un "Constructor" para "schedule" que es implementado de la Interfase "ISchedulable" que recibe 2 parámetros
         this.date = date;
         this.time = time;
     }

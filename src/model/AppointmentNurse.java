@@ -1,11 +1,12 @@
 package model;
 import java.util.Date;
-public class AppointmentNurse implements ISchedulable{                              // Voy a implementar mi interface "ISchedulable"
+public class AppointmentNurse implements ISchedulable{                                                                  // Voy a implementar mi interface "ISchedulable"
     private int id;
+    private String time;
+    private Date date;
     private Nurse nurse;
     private Patient patient;
-    private Date date;
-    private String time;
+
 
     // Getters y Setters
     public int getId() {
@@ -43,7 +44,7 @@ public class AppointmentNurse implements ISchedulable{                          
         this.time = time;
     }
 
-    @Override                                                                       // Sobreescribí e implementé un método
+    @Override                                                                                                           // Sobreescribí e implementé un método
     public void schedule(Date date, String time) {
 
     }

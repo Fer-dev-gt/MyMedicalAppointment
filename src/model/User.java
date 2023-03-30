@@ -1,10 +1,13 @@
 package model;
 
-public abstract class User {                                    // Vamos a utilizar una "Clase Abstracta"
+public abstract class User {                                                                // Vamos a utilizar una "Clase Abstracta"
     private int id;
-    private String name, email, address, phoneNumber;
+    private String name;
+    private String email;
+    private String address;
+    private String phoneNumber;
 
-    public User(String name, String email) {                    // Constructor
+    public User(String name, String email) {                                                // Constructor
         this.name = name;
         this.email = email;
     }
@@ -49,7 +52,7 @@ public abstract class User {                                    // Vamos a utili
         }
     }
 
-    @Override                                                                               // Estoy Sobreescribiendo un Método con la etiqueta "@Override" yo sé que este método no es del a clase model.User
+    @Override                                                                               // Estoy Sobreescribiendo un Método con la etiqueta "@Override" yo sé que este método no es de la clase model.User
     public String toString() {
         return "model.User: " + name + ", Email: " + email +
                 "\nAddress: " + address + ". Phone: "+ phoneNumber;
