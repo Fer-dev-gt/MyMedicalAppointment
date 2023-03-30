@@ -11,8 +11,18 @@ public class Doctor extends User{
         super(name, correo);
     }
 
+    public ArrayList<AvailableAppointment> getAvailableAppointments(){                                          // Establezco mi Getter de mi ArrayList
+        return availableAppointments;
+    }
     public void addAvailableAppointment(String date, String time){                                              // Creo método de la clase model.Doctor para poder agregar citas
         availableAppointments.add(new AvailableAppointment(date, time));                                        // Cada vez que añada una nueva cita estaré creando un nuevo objeto y lo estaré agregando a mi "ArrayList" ("Colección de Objetos")
+    }                                                                                                           // Estoy instanciando un nuevo objeto de mi clase anidada "AvailableAppointment"
+
+    public String getSpeciality() {
+        return speciality;
+    }
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
     }
 
     @Override                                                                                                   // Voy a Sobreescribir el método toString() de la clase model.Doctor para darle el formato que deseo
@@ -26,16 +36,9 @@ public class Doctor extends User{
         System.out.println("Departamento: Cardiología");
     }
 
-    public String getSpeciality() {
-        return speciality;
-    }
-    public void setSpeciality(String speciality) {
-        this.speciality = speciality;
-    }
 
-    public ArrayList<AvailableAppointment> getAvailableAppointments(){                                          // Establezco mi Getter de mi ArrayList
-        return availableAppointments;
-    }
+
+
 
 
 
@@ -46,16 +49,16 @@ public class Doctor extends User{
         private String time;
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");                    // Esta clase nos va a ayudar a trabajar con fechas, le puedo colocar el patrón de fecha que yo quiera
 
-        public AvailableAppointment(String date, String time) {                                 // Establezco el constructor
+        public AvailableAppointment(String date, String time) {                                 // Establezco el constructor, que recibo dos parámetros tipo String
             try{                                                                                // Utilizo un try-catch para mantener el flujo del programa
-                this.date = format.parse(date);                                                 // Acá convierto un String a un Date (Es mejor parsear en la definición del método y no en la implementación)
+                this.date = format.parse(date);                                                 // Acá convierto un String a un Date (Es mejor hacerlo en la definición del método y no en la implementación)
             }catch (ParseException errorParseo){
                 errorParseo.printStackTrace();
             }
             this.time = time;
         }
 
-        // Estable<co los "Getters y Setters"
+        // Establezco los "Getters y Setters"
         public int getId() {
             return id;
         }
